@@ -13,7 +13,6 @@
   <body id="inicio" data-html-import-id="html-import-0" data-template-id="__page-root" style="background: rgb(255, 255, 255);">
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
   <div class="scroll-orb orb-one" aria-hidden="true"></div>
-  <div class="scroll-state" aria-live="polite">Inicio <span></span></div>
   <div class="wrap" data-html-import-id="html-import-1">
    <nav data-html-import-id="html-import-2">
     <a class="logo" href="#inicio" aria-label="Volver al inicio"><img class="logo-image" src="LOGO_UMART.png" alt="UMART: Compra, Emprende, Conecta"></a>
@@ -182,7 +181,6 @@
     (() => {
       const progress = document.querySelector('.scroll-progress span');
       const message = document.querySelector('[data-scroll-message]');
-      const state = document.querySelector('.scroll-state');
       const orbOne = document.querySelector('.orb-one');
       const sections = [...document.querySelectorAll('.scroll-section, .products, .campus-section, .how, .faq-section, .cta, .whatsapp-section')];
       const movingItems = [...document.querySelectorAll('.product, .feature, .audience, .step')];
@@ -205,7 +203,6 @@
         if (current) {
           const key = current.id || 'inicio';
           const nextText = messages[key] || messages.inicio;
-          state.firstChild.textContent = current.querySelector('h2, h1')?.textContent || 'Inicio';
           if (message.textContent !== nextText) {
             message.classList.add('message-change');
             window.setTimeout(() => { message.textContent = nextText; message.classList.remove('message-change'); }, 180);

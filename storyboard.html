@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UMART | De estudiantes, para estudiantes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="story-body">
+  <main class="story-page">
+    <header class="story-header">
+      <a href="Landing.html"><img src="LOGO_UMART.png" alt="UMART: Compra, Emprende, Conecta"></a>
+      <a class="story-back" href="Landing.html">← Volver a UMART</a>
+    </header>
+    <section class="story-intro">
+      <div class="eyebrow">Una historia que nos conecta</div>
+      <h1>De estudiantes, para estudiantes.</h1>
+      <p>Una pequeña historia sobre lo que pasa cuando una buena idea encuentra a la persona que la estaba buscando.</p>
+    </section>
+    <section class="storyboard" aria-label="Storyboard de UMART">
+      <article class="story-scene active">
+        <div class="story-scene-art"><div class="story-bubble">Tengo una idea...</div><div class="story-person person-one"></div><div class="story-person person-two"></div></div>
+        <div class="story-copy"><span class="story-number">ESCENA 01 · EL COMIENZO</span><h2>Todo empieza con algo que quieres compartir.</h2><p>Camila prepara postres después de clases. Mateo diseña accesorios. Ambos tienen talento, pero todavía no saben <mark>cómo llegar a su comunidad</mark>.</p><div class="story-reflection">Una idea crece cuando deja de estar sola.</div></div>
+      </article>
+      <article class="story-scene">
+        <div class="story-scene-art"><div class="story-bubble">¿Dónde encuentro algo así?</div><div class="story-person person-one"></div><div class="story-person person-two"></div></div>
+        <div class="story-copy"><span class="story-number">ESCENA 02 · EL ENCUENTRO</span><h2>Alguien está buscando justo lo que tú ofreces.</h2><p>En otra facultad, Valeria necesita un regalo para su equipo. En lugar de buscar lejos, encuentra una publicación de un estudiante de su mismo campus.</p><div class="story-reflection">La comunidad se vuelve más fuerte cuando nos encontramos cerca.</div></div>
+      </article>
+      <article class="story-scene">
+        <div class="story-scene-art"><div class="story-bubble">¡Conectemos!</div><div class="story-person person-one"></div><div class="story-person person-two"></div></div>
+        <div class="story-copy"><span class="story-number">ESCENA 03 · LA CONEXIÓN</span><h2>Comprar también puede ser una forma de apoyar.</h2><p>UMART acerca a quienes crean con quienes buscan. Una conversación, una compra y una recomendación pueden abrir <mark>nuevas oportunidades</mark>.</p><div class="story-reflection">Cuando uno avanza, toda la comunidad puede avanzar.</div></div>
+      </article>
+      <article class="story-scene">
+        <div class="story-scene-art"><div class="story-bubble">Esto recién comienza.</div><div class="story-person person-one"></div><div class="story-person person-two"></div></div>
+        <div class="story-copy"><span class="story-number">ESCENA 04 · EL SIGUIENTE PASO</span><h2>Tu próxima historia también puede empezar aquí.</h2><p>Seas emprendedor o consumidor, tienes un lugar en esta red. <mark>Descubre, publica y conecta</mark> con personas que comparten tu mismo campus.</p><div class="story-reflection">Tu campus no solo es un lugar para estudiar. También es una oportunidad.</div><a class="btn orange" href="https://campus-emprende.vercel.app/" target="_blank" rel="noopener noreferrer">Ser parte de UMART →</a></div>
+      </article>
+      <div class="story-controls"><button class="story-button" id="story-prev" type="button" disabled>← Anterior</button><span class="story-count" aria-live="polite">1 / 4</span><button class="story-button" id="story-next" type="button">Siguiente →</button></div>
+    </section>
+  </main>
+  <script>
+    const scenes = [...document.querySelectorAll('.story-scene')];
+    const count = document.querySelector('.story-count');
+    const previous = document.querySelector('#story-prev');
+    const next = document.querySelector('#story-next');
+    let current = 0;
+    const showScene = (index) => { current = Math.max(0, Math.min(index, scenes.length - 1)); scenes.forEach((scene, i) => scene.classList.toggle('active', i === current)); count.textContent = `${current + 1} / ${scenes.length}`; previous.disabled = current === 0; next.disabled = current === scenes.length - 1; };
+    previous.addEventListener('click', () => showScene(current - 1));
+    next.addEventListener('click', () => showScene(current + 1));
+  </script>
+</body>
+</html>

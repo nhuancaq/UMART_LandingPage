@@ -213,8 +213,7 @@
           const distance = (bounds.top + bounds.height / 2 - window.innerHeight / 2) / window.innerHeight;
           item.style.setProperty('--scroll-shift', `${Math.max(-18, Math.min(18, distance * -14))}px`);
         });
-        orbOne.style.transform = `translate3d(0, ${window.scrollY * -.12}px, 0)`;
-        if (depth) depth.style.setProperty('--scroll-depth', `${Math.max(-24, Math.min(24, window.scrollY * -.025))}px`);
+        if (orbOne) orbOne.style.transform = `translate3d(0, ${window.scrollY * -.12}px, 0)`;
         ticking = false;
       };
 

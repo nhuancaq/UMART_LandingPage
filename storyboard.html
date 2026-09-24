@@ -18,34 +18,92 @@
       <p>Una pequeña historia sobre lo que pasa cuando una buena idea encuentra a la persona que la estaba buscando.</p>
     </section>
     <section class="storyboard" aria-label="Storyboard de UMART">
+      <div class="story-audience-picker" role="group" aria-label="Elige cómo quieres leer la historia">
+        <p>¿Cómo quieres conocer UMART?</p>
+        <button class="story-audience-button active" type="button" data-profile="consumidor" aria-pressed="true">🛍️ Soy consumidor</button>
+        <button class="story-audience-button" type="button" data-profile="emprendedor" aria-pressed="false">🚀 Soy emprendedor</button>
+      </div>
       <article class="story-scene active">
-        <div class="story-scene-art"><div class="story-bubble">Tengo una idea...</div><div class="story-person person-one"></div><div class="story-person person-two"></div></div>
-        <div class="story-copy"><span class="story-number">ESCENA 01 · EL COMIENZO</span><h2>Todo empieza con algo que quieres compartir.</h2><p>Camila prepara postres después de clases. Mateo diseña accesorios. Ambos tienen talento, pero todavía no saben <mark>cómo llegar a su comunidad</mark>.</p><div class="story-reflection">Una idea crece cuando deja de estar sola.</div></div>
-      </article>
-      <article class="story-scene">
-        <div class="story-scene-art"><div class="story-bubble">¿Dónde encuentro algo así?</div><div class="story-person person-one"></div><div class="story-person person-two"></div></div>
-        <div class="story-copy"><span class="story-number">ESCENA 02 · EL ENCUENTRO</span><h2>Alguien está buscando justo lo que tú ofreces.</h2><p>En otra facultad, Valeria necesita un regalo para su equipo. En lugar de buscar lejos, encuentra una publicación de un estudiante de su mismo campus.</p><div class="story-reflection">La comunidad se vuelve más fuerte cuando nos encontramos cerca.</div></div>
-      </article>
-      <article class="story-scene">
-        <div class="story-scene-art"><div class="story-bubble">¡Conectemos!</div><div class="story-person person-one"></div><div class="story-person person-two"></div></div>
-        <div class="story-copy"><span class="story-number">ESCENA 03 · LA CONEXIÓN</span><h2>Comprar también puede ser una forma de apoyar.</h2><p>UMART acerca a quienes crean con quienes buscan. Una conversación, una compra y una recomendación pueden abrir <mark>nuevas oportunidades</mark>.</p><div class="story-reflection">Cuando uno avanza, toda la comunidad puede avanzar.</div></div>
-      </article>
-      <article class="story-scene">
-        <div class="story-scene-art"><div class="story-bubble">Esto recién comienza.</div><div class="story-person person-one"></div><div class="story-person person-two"></div></div>
-        <div class="story-copy"><span class="story-number">ESCENA 04 · EL SIGUIENTE PASO</span><h2>Tu próxima historia también puede empezar aquí.</h2><p>Seas emprendedor o consumidor, tienes un lugar en esta red. <mark>Descubre, publica y conecta</mark> con personas que comparten tu mismo campus.</p><div class="story-reflection">Tu campus no solo es un lugar para estudiar. También es una oportunidad.</div><a class="btn orange" href="https://campus-emprende.vercel.app/" target="_blank" rel="noopener noreferrer">Ser parte de UMART →</a></div>
+        <div class="story-scene-art" role="img" aria-label="Viñeta 1 del storyboard para consumidores">
+          <div class="story-spark spark-one">✦</div><div class="story-spark spark-two">✦</div>
+          <div class="story-bubble" data-story-bubble>¿Dónde encuentro algo así?</div>
+          <div class="story-card card-one" data-story-card-one>★ Cerca de ti</div><div class="story-card card-two" data-story-card-two>Novedoso</div>
+          <div class="story-person person-one"></div><div class="story-person person-two"></div>
+        </div>
+        <div class="story-copy"><span class="story-number" data-story-number>VIÑETA 01 · DESCUBRIR</span><h2 data-story-title>Encuentra algo que necesitas cerca de ti.</h2><p data-story-copy>Como consumidor, puedes descubrir productos y servicios creados por estudiantes de tu misma comunidad.</p><div class="story-reflection" data-story-reflection>Tu próxima compra puede apoyar una gran idea.</div></div>
       </article>
       <div class="story-controls"><button class="story-button" id="story-prev" type="button" disabled>← Anterior</button><span class="story-count" aria-live="polite">1 / 4</span><button class="story-button" id="story-next" type="button">Siguiente →</button></div>
+      <section class="story-complement" aria-label="Storyboards completos">
+        <div><span class="story-number">COMPLEMENTO VISUAL</span><h2>La historia completa, en una sola mirada.</h2><p>Estas versiones completas acompañan la animación mientras seguimos perfeccionando sus viñetas.</p></div>
+        <div class="story-complement-grid"><figure class="active" data-complement-profile="consumidor"><img src="Storyboard.png/StoryboardConsumidor.png" alt="Storyboard completo del consumidor"><figcaption>Historia del consumidor</figcaption></figure><figure data-complement-profile="emprendedor"><img src="Storyboard.png/storyboardEmprendedor.png" alt="Storyboard completo del emprendedor"><figcaption>Historia del emprendedor</figcaption></figure></div>
+      </section>
     </section>
   </main>
   <script>
-    const scenes = [...document.querySelectorAll('.story-scene')];
+    const scene = document.querySelector('.story-scene');
+    const sceneArt = document.querySelector('.story-scene-art');
     const count = document.querySelector('.story-count');
     const previous = document.querySelector('#story-prev');
     const next = document.querySelector('#story-next');
+    const profileButtons = [...document.querySelectorAll('[data-profile]')];
+    const storyNumber = document.querySelector('[data-story-number]');
+    const storyTitle = document.querySelector('[data-story-title]');
+    const storyCopy = document.querySelector('[data-story-copy]');
+    const storyReflection = document.querySelector('[data-story-reflection]');
+    const storyBubble = document.querySelector('[data-story-bubble]');
+    const storyCardOne = document.querySelector('[data-story-card-one]');
+    const storyCardTwo = document.querySelector('[data-story-card-two]');
+    const complementFigures = [...document.querySelectorAll('[data-complement-profile]')];
+    const stories = {
+      consumidor: {
+        label: 'consumidores',
+        scenes: [
+          ['VIÑETA 01 · DESCUBRIR', 'Encuentra algo que necesitas cerca de ti.', 'Como consumidor, puedes descubrir productos y servicios creados por estudiantes de tu misma comunidad.', 'Tu próxima compra puede apoyar una gran idea.', '¿Dónde encuentro algo así?', '★ Cerca de ti', 'Nuevo'],
+          ['VIÑETA 02 · EXPLORAR', 'Compara opciones pensadas para ti.', 'Explora publicaciones, revisa precios y encuentra lo que buscas sin perder tiempo en distintos grupos.', 'Cuando todo está en un solo lugar, elegir es más sencillo.', 'Quiero ver mis opciones', 'Mejor valorado', 'S/ 25'],
+          ['VIÑETA 03 · CONECTAR', 'Habla directamente con quien vende.', 'Resuelve tus dudas y coordina tu compra con una persona real de tu campus.', 'La confianza también se construye conversando.', '¿Todavía tienes disponible?', 'Respuesta rápida', 'Campus'],
+          ['VIÑETA 04 · APOYAR', 'Comprar aquí también mueve tu comunidad.', 'Cada compra ayuda a que el talento de otro estudiante siga creciendo.', 'Tu decisión puede abrirle espacio a una nueva historia.', '¡Gracias por apoyar!', 'Compra local', 'Conectados']
+        ]
+      },
+      emprendedor: {
+        label: 'emprendedores',
+        scenes: [
+          ['VIÑETA 01 · EMPEZAR', 'Tienes una idea que merece ser vista.', 'Como emprendedor, puedes convertir lo que sabes hacer en una propuesta para tu comunidad universitaria.', 'Toda oportunidad comienza cuando te animas a mostrarla.', 'Tengo algo que compartir', 'Mi emprendimiento', 'Idea nueva'],
+          ['VIÑETA 02 · PUBLICAR', 'Crea tu vitrina dentro del campus.', 'Publica tus productos o servicios y organiza tu catálogo para que las personas encuentren lo que ofreces.', 'Tu talento se vuelve más visible cuando está en el lugar correcto.', 'Publicar producto', 'Tu catálogo', 'Listo'],
+          ['VIÑETA 03 · CONECTAR', 'Llega a quienes ya están buscando.', 'Recibe consultas de estudiantes y conversa directamente con posibles compradores.', 'Una conversación puede convertirse en tu próximo cliente.', 'Tengo una consulta', 'Nuevo contacto', 'En línea'],
+          ['VIÑETA 04 · CRECER', 'Haz crecer tu emprendimiento con tu comunidad.', 'Cada publicación, recomendación y compra te acerca a nuevas oportunidades dentro del campus.', 'Cuando tu emprendimiento avanza, toda la comunidad gana.', '¡Tenemos un pedido!', 'Nueva oportunidad', 'Celebrar']
+        ]
+      }
+    };
+    let profile = 'consumidor';
     let current = 0;
-    const showScene = (index) => { current = Math.max(0, Math.min(index, scenes.length - 1)); scenes.forEach((scene, i) => scene.classList.toggle('active', i === current)); count.textContent = `${current + 1} / ${scenes.length}`; previous.disabled = current === 0; next.disabled = current === scenes.length - 1; };
+    const showScene = (index) => {
+      const story = stories[profile];
+      current = Math.max(0, Math.min(index, story.scenes.length - 1));
+      const [number, title, copy, reflection, bubble, cardOne, cardTwo] = story.scenes[current];
+      sceneArt.setAttribute('aria-label', `Viñeta ${current + 1} del storyboard para ${story.label}`);
+      storyNumber.textContent = number;
+      storyTitle.textContent = title;
+      storyCopy.textContent = copy;
+      storyReflection.textContent = reflection;
+      storyBubble.textContent = bubble;
+      storyCardOne.textContent = cardOne;
+      storyCardTwo.textContent = cardTwo;
+      complementFigures.forEach((figure) => figure.classList.toggle('active', figure.dataset.complementProfile === profile));
+      count.textContent = `${current + 1} / ${story.scenes.length}`;
+      previous.disabled = current === 0;
+      next.disabled = current === story.scenes.length - 1;
+      scene.classList.remove('active');
+      window.requestAnimationFrame(() => scene.classList.add('active'));
+    };
+    profileButtons.forEach((button) => button.addEventListener('click', () => {
+      profile = button.dataset.profile;
+      current = 0;
+      profileButtons.forEach((item) => { item.classList.toggle('active', item === button); item.setAttribute('aria-pressed', item === button ? 'true' : 'false'); });
+      showScene(current);
+    }));
     previous.addEventListener('click', () => showScene(current - 1));
     next.addEventListener('click', () => showScene(current + 1));
+    showScene(0);
   </script>
 </body>
 </html>

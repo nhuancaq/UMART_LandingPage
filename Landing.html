@@ -103,24 +103,28 @@
    <div class="eyebrow">Más cerca de tu comunidad</div>
    <h2>Encuentra oportunidades en cada facultad.</h2>
    <p class="campus-lead">UMART conecta tu talento con estudiantes de todo el campus. Explora las zonas académicas y descubre dónde comprar, vender y colaborar.</p>
-   <div class="campus-layout">
-    <div class="campus-map" aria-label="Mapa ilustrativo de facultades y escuelas del campus">
-    <div class="map-road road-one"></div><div class="map-road road-two"></div><div class="map-road road-three"></div>
-    <a class="map-pin pin-one" href="https://www.google.com/maps/search/?api=1&amp;query=Facultad+de+Ingenieria" target="_blank" rel="noopener noreferrer"><span>1</span><b>Ingeniería</b></a>
-    <a class="map-pin pin-two" href="https://www.google.com/maps/search/?api=1&amp;query=Facultad+de+Negocios" target="_blank" rel="noopener noreferrer"><span>2</span><b>Negocios</b></a>
-    <a class="map-pin pin-three" href="https://www.google.com/maps/search/?api=1&amp;query=Facultad+de+Salud" target="_blank" rel="noopener noreferrer"><span>3</span><b>Salud</b></a>
-    <a class="map-pin pin-four" href="https://www.google.com/maps/search/?api=1&amp;query=Facultad+de+Comunicacion" target="_blank" rel="noopener noreferrer"><span>4</span><b>Comunicación</b></a>
-    <a class="map-pin pin-five" href="https://www.google.com/maps/search/?api=1&amp;query=Facultad+de+Arte+y+Diseno" target="_blank" rel="noopener noreferrer"><span>5</span><b>Arte y diseño</b></a>
-    <div class="map-compass" aria-label="Logo de UMART"><img src="LOGO_UMART.png" alt="UMART"></div>
-    </div>
-    <div class="campus-benefits">
-    <span class="campus-kicker">Una red que se mueve contigo</span>
-    <h3>Tu próxima oportunidad puede estar a pocos pasos.</h3>
-    <p>Publica tus productos o servicios y llega a personas que comparten tu mismo campus, intereses y necesidades.</p>
-    <ul><li>Visibilidad por facultad o escuela.</li><li>Contacto directo entre estudiantes.</li><li>Compra y venta dentro de tu comunidad.</li></ul>
-    <a class="btn orange" href="https://campus-emprende.vercel.app/" target="_blank" rel="noopener noreferrer">Quiero ser parte de la red →</a>
+  <div class="campus-layout campus-explorer" data-campus-explorer>
+   <div class="campus-map-panel">
+    <div class="campus-map-toolbar"><span><i class="map-status-dot"></i>Mapa de escuelas UNJBG</span><span class="map-toolbar-label">Tacna, Perú</span></div>
+    <div class="campus-map-frame">
+    <iframe data-campus-map title="Mapa de escuelas de la Universidad Nacional Jorge Basadre Grohmann" src="https://www.google.com/maps?q=Universidad+Nacional+Jorge+Basadre+Grohmann+Tacna+Peru&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="map-overlay-label"><strong>UNJBG</strong><span>Escuelas universitarias</span></div>
+    <div class="map-zoom-controls" aria-hidden="true"><span>+</span><span>−</span></div>
     </div>
    </div>
+   <aside class="campus-school-panel" aria-label="Escuelas de la UNJBG">
+    <div class="campus-school-heading"><span class="campus-kicker">Explora por escuela</span><span class="school-count">6 ubicaciones</span></div>
+    <div class="campus-school-list">
+    <button class="campus-school active" type="button" data-school="Ingeniería de Sistemas" data-query="Escuela Profesional de Ingeniería de Sistemas UNJBG Tacna"><span class="school-icon">⌘</span><span><strong>Ingeniería de Sistemas</strong><small>Facultad de Ingeniería</small></span><b>›</b></button>
+    <button class="campus-school" type="button" data-school="Arquitectura" data-query="Escuela Profesional de Arquitectura UNJBG Tacna"><span class="school-icon">⌂</span><span><strong>Arquitectura</strong><small>Facultad de Ingeniería Civil, Arquitectura y Geotecnia</small></span><b>›</b></button>
+    <button class="campus-school" type="button" data-school="Administración" data-query="Escuela Profesional de Administración UNJBG Tacna"><span class="school-icon">▦</span><span><strong>Administración</strong><small>Facultad de Ciencias Jurídicas y Empresariales</small></span><b>›</b></button>
+    <button class="campus-school" type="button" data-school="Medicina Humana" data-query="Escuela Profesional de Medicina Humana UNJBG Tacna"><span class="school-icon">✚</span><span><strong>Medicina Humana</strong><small>Facultad de Ciencias de la Salud</small></span><b>›</b></button>
+    <button class="campus-school" type="button" data-school="Ciencias de la Comunicación" data-query="Escuela Profesional de Ciencias de la Comunicación UNJBG Tacna"><span class="school-icon">◉</span><span><strong>Ciencias de la Comunicación</strong><small>Facultad de Educación, Comunicación y Humanidades</small></span><b>›</b></button>
+    <button class="campus-school" type="button" data-school="Ingeniería Comercial" data-query="Escuela Profesional de Ingeniería Comercial UNJBG Tacna"><span class="school-icon">↗</span><span><strong>Ingeniería Comercial</strong><small>Facultad de Ciencias Jurídicas y Empresariales</small></span><b>›</b></button>
+    </div>
+    <div class="campus-school-detail"><span class="detail-label">ESCUELA SELECCIONADA</span><h3 data-school-title>Ingeniería de Sistemas</h3><p>Consulta su ubicación y abre la vista 360° disponible en Google Maps.</p><a class="campus-360-link" data-campus-360 href="https://www.google.com/maps/search/?api=1&amp;query=Escuela+Profesional+de+Ingenier%C3%ADa+de+Sistemas+UNJBG+Tacna" target="_blank" rel="noopener noreferrer">Abrir vista 360° en Google Maps <span>↗</span></a></div>
+   </aside>
+  </div>
   </section>
   <section id="como-funciona" class="how canva-section" data-html-import-id="html-import-96" data-template-id="section-75" style="background: rgb(255, 255, 255);">
     <div class="eyebrow canva-container" style="color: rgb(255, 105, 53); font-weight: 900; font-style: normal; font-size: 12px;" data-html-import-id="html-import-97" data-template-id="div-76">Así funciona</div>
@@ -225,6 +229,21 @@
         entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
       }, { threshold: .16 });
       sections.forEach((section) => reveal.observe(section));
+
+      const schoolButtons = [...document.querySelectorAll('[data-school]')];
+      const campusMap = document.querySelector('[data-campus-map]');
+      const schoolTitle = document.querySelector('[data-school-title]');
+      const campus360 = document.querySelector('[data-campus-360]');
+      schoolButtons.forEach((button) => button.addEventListener('click', () => {
+        const school = button.dataset.school;
+        const query = button.dataset.query;
+        const encodedQuery = encodeURIComponent(query);
+        schoolButtons.forEach((item) => item.classList.toggle('active', item === button));
+        schoolTitle.textContent = school;
+        campusMap.src = `https://www.google.com/maps?q=${encodedQuery}&output=embed`;
+        campusMap.title = `Mapa de ${school}, UNJBG`;
+        campus360.href = `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`;
+      }));
 
       updateScroll();
     })();

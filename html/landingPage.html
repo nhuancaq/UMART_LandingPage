@@ -5,10 +5,10 @@
   <title> Umart | Compra, vende y conecta</title>
   <link rel="stylesheet" href="../css/styles.css">
   <style>.scope-preview{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:22px auto 20px;color:#351071}.scope-preview strong{font-size:13px;margin-right:4px}.scope-option{padding:10px 15px;border:1px solid #ddd5e8;border-radius:24px;background:#fff;color:#351071;font:inherit;font-size:13px;font-weight:800;cursor:pointer;transition:all .2s}.scope-option:hover{border-color:#351071}.scope-option.active{background:#351071;color:#fff;box-shadow:0 6px 16px #3510712b}.scope-caption{width:100%;text-align:center;color:#607387;font-size:12px}.product-link[hidden]{display:none!important}@media(max-width:600px){.scope-preview{gap:7px}.scope-preview strong{width:100%;text-align:center}.scope-option{font-size:12px;padding:9px 12px}}</style>
-  <style>.campus-mode-toggle{display:flex;justify-content:center;gap:6px;width:max-content;max-width:100%;margin:30px auto 22px;padding:5px;border:1px solid #ddd5e8;border-radius:14px;background:#fff;box-shadow:0 8px 22px #35107112}.campus-mode-button{border:0;border-radius:10px;padding:12px 18px;background:transparent;color:#60556f;font:inherit;font-size:13px;font-weight:900;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s}.campus-mode-button.active{background:#351071;color:#fff;box-shadow:0 5px 14px #3510712e}.campus-mode-button:focus-visible{outline:3px solid #ffb08d;outline-offset:3px}.campus-school-list[hidden]{display:none!important}@media(max-width:560px){.campus-mode-toggle{width:100%}.campus-mode-button{flex:1;padding:11px 8px;font-size:11px}}</style>
+  <style>.campus-mode-toggle{display:flex;justify-content:center;gap:6px;width:max-content;max-width:100%;margin:24px auto 18px;padding:5px;border:1px solid #ddd5e8;border-radius:14px;background:#fff;box-shadow:0 8px 22px #35107112}.campus-mode-button{border:0;border-radius:10px;padding:12px 18px;background:transparent;color:#60556f;font:inherit;font-size:13px;font-weight:900;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s}.campus-mode-button.active{background:#351071;color:#fff;box-shadow:0 5px 14px #3510712e}.campus-mode-button:focus-visible{outline:3px solid #ffb08d;outline-offset:3px}.campus-school-list[hidden],.campus-empty-message[hidden],.campus-institution-filter[hidden]{display:none!important}.province-filter,.campus-institution-filter{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:28px auto 0}.province-filter label,.campus-institution-filter label{color:#351071;font-size:13px;font-weight:900}.province-filter select,.campus-institution-filter select{min-width:220px;padding:11px 38px 11px 14px;border:1px solid #d9d0e5;border-radius:11px;background:#fff;color:#351071;font:inherit;font-size:13px;font-weight:800}.campus-institution-filter{margin:22px auto 20px}.campus-institution-filter p{flex-basis:100%;margin:0;color:#66768a;font-size:12px}.campus-empty-message{margin:20px 0 0;padding:16px;border-radius:12px;background:#f5f1fa;color:#68768a;font-size:13px;line-height:1.5}@media(max-width:560px){.province-filter,.campus-institution-filter{align-items:stretch;flex-direction:column;padding:0 8px}.province-filter select,.campus-institution-filter select{width:100%}.campus-mode-toggle{width:100%}.campus-mode-button{flex:1;padding:11px 8px;font-size:11px}}</style>
   <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
-  <script>document.addEventListener("DOMContentLoaded",()=>{const buttons=[...document.querySelectorAll(".scope-option")];const caption=document.querySelector(".scope-caption");const offers=[...document.querySelectorAll("[data-offer-scope]")];buttons.forEach(button=>button.addEventListener("click",()=>{const scope=button.dataset.scopeFilter;buttons.forEach(item=>{const active=item===button;item.classList.toggle("active",active);item.setAttribute("aria-pressed",String(active))});offers.forEach(offer=>offer.hidden=scope==="university"&&offer.dataset.offerScope!=="university");caption.textContent=scope==="university"?"Emprendimientos de la comunidad universitaria":"Negocios locales y emprendimientos universitarios"}))});</script>
+  <script>document.addEventListener("DOMContentLoaded",()=>{const buttons=[...document.querySelectorAll(".scope-option")];const caption=document.querySelector(".scope-caption");const offers=[...document.querySelectorAll("[data-offer-scope]")];const applyScope=scope=>{offers.forEach(offer=>offer.hidden=offer.dataset.offerScope!==(scope==="university"?"university":"local"));caption.textContent=scope==="university"?"Proyectos de la comunidad universitaria":"Negocios y emprendimientos locales de Tacna"};buttons.forEach(button=>button.addEventListener("click",()=>{const scope=button.dataset.scopeFilter;buttons.forEach(item=>{const active=item===button;item.classList.toggle("active",active);item.setAttribute("aria-pressed",String(active))});applyScope(scope)}));applyScope("all")});</script>
  </head>
   <body id="inicio" data-html-import-id="html-import-0" data-template-id="__page-root" style="background: rgb(255, 255, 255);">
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
@@ -92,44 +92,61 @@
     <div class="eyebrow canva-container" style="color: rgb(255, 105, 53); font-weight: 900; font-style: normal; font-size: 12px;" data-html-import-id="html-import-69" data-template-id="div-53">Descubre</div>
     <h2 style="color: rgb(53, 16, 113); font-size: 40px; font-weight: 400; font-style: normal;" data-html-import-id="html-import-70" data-template-id="h2-54" class="canva-text">Lo que puedes encontrar</h2>
     <p class="discover-lead">Haz clic en una categoría para ver más ejemplos y descubrir el potencial de cada publicación.</p>
-    <div class="scope-preview" aria-label="Selector de alcance"><strong>Explorar ofertas de:</strong><button type="button" class="scope-option" data-scope-filter="university" aria-pressed="false">🎓 Universidad</button><button type="button" class="scope-option active" data-scope-filter="all" aria-pressed="true">📍 Todo Tacna</button><span class="scope-caption" aria-live="polite">Negocios locales y emprendimientos universitarios</span></div>
+    <div class="scope-preview" aria-label="Selector de alcance"><strong>Explorar ofertas de:</strong><button type="button" class="scope-option" data-scope-filter="university" aria-pressed="false">🎓 Universidad</button><button type="button" class="scope-option active" data-scope-filter="all" aria-pressed="true">📍 Todo Tacna</button><span class="scope-caption" aria-live="polite">Negocios locales y proyectos universitarios de Tacna</span></div>
     <div class="productgrid" data-html-import-id="html-import-71">
-     <a class="product product-link" data-offer-scope="university" href="galeria.html#comida"><img src="../assets/Pictures.png/Postree.png" alt="Postre de chocolate para venta"><div><span class="cat">COMIDA · CAMPUS</span><b>Postres y repostería</b><span class="price">Ver más →</span></div></a>
-     <a class="product product-link" data-offer-scope="local" href="galeria.html#tecnologia"><img src="../assets/Pictures.png/Audifonos.png" alt="Audífonos inalámbricos para venta"><div><span class="cat">TECNOLOGÍA · TACNA</span><b>Accesorios y equipos</b><span class="price">Ver más →</span></div></a>
-     <a class="product product-link" data-offer-scope="local" href="galeria.html#moda"><img src="../assets/Pictures.png/Camisa.pn.png" alt="Camisa negra para venta"><div><span class="cat">MODA · TACNA</span><b>Moda y accesorios</b><span class="price">Ver más →</span></div></a>
-     <a class="product product-link" data-offer-scope="university" href="galeria.html#servicios"><img src="../assets/Pictures.png/Netflix.png" alt="Servicio de entretenimiento"><div><span class="cat">SERVICIOS · CAMPUS</span><b>Entretenimiento y suscripciones</b><span class="price">Ver más →</span></div></a>
+     <a class="product product-link" data-offer-scope="local" href="galeria-tacna.html#artesania"><img src="../assets/Pictures.png/Artesan%C3%ADa.png" alt="Artesanías hechas en Tacna"><div><span class="cat">ARTESANÍA · TACNA</span><b>Artesanía y recuerdos locales</b><span class="price">Ver más →</span></div></a>
+     <a class="product product-link" data-offer-scope="local" href="galeria-tacna.html#anticuchos"><img src="../assets/Pictures.png/comida.png" alt="Anticuchos preparados en Tacna"><div><span class="cat">COMIDA · TACNA</span><b>Anticuchos tacneños</b><span class="price">Ver más →</span></div></a>
+     <a class="product product-link" data-offer-scope="local" href="galeria-tacna.html#crema-fresa"><img src="../assets/Pictures.png/CremaFresa.png" alt="Crema de fresa casera"><div><span class="cat">HECHO EN TACNA</span><b>Crema de fresa casera</b><span class="price">Ver más →</span></div></a>
+     <a class="product product-link" data-offer-scope="local" href="galeria-tacna.html#productos-locales"><img src="../assets/Pictures.png/ProductoLocal.png" alt="Papas nativas y productos locales de Tacna"><div><span class="cat">PRODUCTOS LOCALES</span><b>Sabores de nuestra tierra</b><span class="price">Ver más →</span></div></a>
+     <a class="product product-link" data-offer-scope="local" href="galeria-tacna.html#ropa-lana"><img src="../assets/Pictures.png/RopaLana.png" alt="Prendas de lana elaboradas en Tacna"><div><span class="cat">MODA · TACNA</span><b>Ropa de lana local</b><span class="price">Ver más →</span></div></a>
+     <a class="product product-link" data-offer-scope="local" href="galeria-tacna.html#velas"><img src="../assets/Pictures.png/VelaArtesanal.png" alt="Velas artesanales hechas en Tacna"><div><span class="cat">ARTESANÍA · TACNA</span><b>Velas artesanales</b><span class="price">Ver más →</span></div></a>
+     <a class="product product-link" data-offer-scope="university" href="galeria-universidad.html#postres"><img src="../assets/Pictures.png/Postree.png" alt="Postre de chocolate para venta"><div><span class="cat">COMIDA · UNIVERSIDAD</span><b>Postres y repostería</b><span class="price">Ver más →</span></div></a>
+     <a class="product product-link" data-offer-scope="university" href="galeria-universidad.html#tecnologia"><img src="../assets/Pictures.png/Audifonos.png" alt="Audífonos inalámbricos para venta"><div><span class="cat">TECNOLOGÍA · UNIVERSIDAD</span><b>Accesorios y equipos</b><span class="price">Ver más →</span></div></a>
+     <a class="product product-link" data-offer-scope="university" href="galeria-universidad.html#moda"><img src="../assets/Pictures.png/Camisa.pn.png" alt="Camisa negra para venta"><div><span class="cat">MODA · UNIVERSIDAD</span><b>Moda y accesorios</b><span class="price">Ver más →</span></div></a>
+     <a class="product product-link" data-offer-scope="university" href="galeria-universidad.html#servicios"><img src="../assets/Pictures.png/Netflix.png" alt="Servicio de entretenimiento"><div><span class="cat">SERVICIOS · UNIVERSIDAD</span><b>Entretenimiento y suscripciones</b><span class="price">Ver más →</span></div></a>
     </div>
    </section>
   <section id="campus" class="campus-section">
    <div class="eyebrow">Más cerca de tu comunidad</div>
-   <h2>Explora comercios y emprendimientos en distintos puntos de Tacna</h2>
-   <p class="campus-lead">Explora puntos de encuentro universitarios y comerciales para descubrir negocios, productos y servicios cerca de tu zona.</p>
+   <h2>Explora comercios y universidades por provincia</h2>
+   <p class="campus-lead">Elige una provincia para encontrar zonas comerciales. En el modo campus, selecciona el tipo de universidad y consulta sus facultades.</p>
   <div class="campus-mode-toggle" role="group" aria-label="Selecciona una vista del mapa">
-    <button class="campus-mode-button active" type="button" data-map-mode="commerce" aria-pressed="true">🛍️ Modo Comercio Tacna</button>
+    <button class="campus-mode-button active" type="button" data-map-mode="commerce" aria-pressed="true">🛍️ Modo Comercio Regional</button>
     <button class="campus-mode-button" type="button" data-map-mode="campus" aria-pressed="false">🎓 Modo Campus Universitario</button>
+  </div>
+  <div class="province-filter">
+    <label for="map-province">Provincia</label>
+    <select id="map-province" data-province-select>
+      <option value="Tacna">Tacna</option>
+      <option value="Tarata">Tarata</option>
+      <option value="Jorge Basadre">Jorge Basadre</option>
+      <option value="Candarave">Candarave</option>
+    </select>
+  </div>
+  <div class="campus-institution-filter" data-campus-institution-filter hidden>
+    <label for="map-institution">¿A qué universidad perteneces?</label>
+    <select id="map-institution" data-institution>
+      <option value="unjbg">UNJBG</option>
+      <option value="upt">UPT</option>
+      <option value="utp">UTP</option>
+    </select>
+    <p data-campus-filter-message>Elige una provincia para ver las universidades disponibles.</p>
   </div>
   <div class="campus-layout campus-explorer" data-campus-explorer>
    <div class="campus-map-panel">
     <div class="campus-map-toolbar"><span><i class="map-status-dot"></i><span data-map-toolbar-title>Mapa de comercios y negocios locales</span></span><span class="map-toolbar-label">Tacna, Perú</span></div>
     <div class="campus-map-frame">
     <iframe data-campus-map title="Mapa de comercios y negocios locales de Tacna" src="https://www.google.com/maps?q=comercios+Av.+Coronel+Mendoza+Tacna+Peru&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <div class="map-overlay-label"><strong>TACNA</strong><span data-map-overlay>Comercios y negocios locales</span></div>
+    <div class="map-overlay-label"><strong data-map-province-label>TACNA</strong><span data-map-overlay>Comercios y negocios locales</span></div>
     <div class="map-zoom-controls" aria-hidden="true"><span>+</span><span>−</span></div>
     </div>
    </div>
    <aside class="campus-school-panel" aria-label="Zonas comerciales y facultades universitarias">
-    <div class="campus-school-heading"><span class="campus-kicker" data-map-list-title>Zonas comerciales</span><span class="school-count">3 ubicaciones</span></div>
-    <div class="campus-school-list" data-map-list="commerce">
-    <button class="campus-school active" type="button" data-school="Av. Coronel Mendoza" data-query="comercios Av. Coronel Mendoza Tacna Peru"><span class="school-icon">▣</span><span><strong>Av. Coronel Mendoza</strong><small>Mercadillos, galerías y negocios locales</small></span><b>›</b></button>
-    <button class="campus-school" type="button" data-school="Mercado Central de Tacna" data-query="Mercado Central Tacna Peru"><span class="school-icon">⌖</span><span><strong>Mercado Central</strong><small>Comercio tradicional y productos locales</small></span><b>›</b></button>
-    <button class="campus-school" type="button" data-school="Centro de Tacna" data-query="comercios centro de Tacna Peru"><span class="school-icon">↗</span><span><strong>Centro de Tacna</strong><small>Tiendas, servicios y negocios locales</small></span><b>›</b></button>
-    </div>
-    <div class="campus-school-list" data-map-list="campus" hidden>
-    <button class="campus-school" type="button" data-school="Ingeniería de Sistemas" data-query="Escuela Profesional de Ingeniería de Sistemas UNJBG Tacna"><span class="school-icon">⌘</span><span><strong>Ingeniería de Sistemas</strong><small>Facultad de Ingeniería · UNJBG</small></span><b>›</b></button>
-    <button class="campus-school" type="button" data-school="Arquitectura" data-query="Escuela Profesional de Arquitectura UNJBG Tacna"><span class="school-icon">⌂</span><span><strong>Arquitectura</strong><small>Facultad de Ingeniería · UNJBG</small></span><b>›</b></button>
-    <button class="campus-school" type="button" data-school="Administración" data-query="Escuela Profesional de Administración UNJBG Tacna"><span class="school-icon">▦</span><span><strong>Administración</strong><small>Facultad de Ciencias Jurídicas · UNJBG</small></span><b>›</b></button>
-    </div>
-    <div class="campus-school-detail"><span class="detail-label">UBICACIÓN SELECCIONADA</span><h3 data-school-title>Av. Coronel Mendoza</h3><p>Consulta los comercios de la zona y abre su ubicación en Google Maps.</p><a class="campus-360-link" data-campus-360 href="https://www.google.com/maps/search/?api=1&amp;query=comercios+Av.+Coronel+Mendoza+Tacna+Peru" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps <span>↗</span></a></div>
+    <div class="campus-school-heading"><span class="campus-kicker" data-map-list-title>Zonas comerciales · Tacna</span><span class="school-count" data-location-count>6 ubicaciones</span></div>
+    <div class="campus-school-list" data-map-list="commerce"></div>
+    <div class="campus-school-list" data-map-list="campus" hidden></div>
+    <p class="campus-empty-message" data-campus-empty hidden>En esta versión aún no hemos agregado universidades para esta provincia. Puedes explorar sus zonas comerciales o volver al campus de la provincia de Tacna.</p>
+    <div class="campus-school-detail"><span class="detail-label" data-location-label>ZONA SELECCIONADA</span><h3 data-school-title>Av. Coronel Mendoza</h3><p data-location-description>Mercadillos, galerías y negocios locales.</p><a class="campus-360-link" data-campus-360 href="https://www.google.com/maps/search/?api=1&amp;query=comercios+Av.+Coronel+Mendoza+Tacna+Peru" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps <span>↗</span></a></div>
    </aside>
   </div>
   </section>
@@ -237,41 +254,178 @@
       }, { threshold: .16 });
       sections.forEach((section) => reveal.observe(section));
 
-      const schoolButtons = [...document.querySelectorAll('[data-school]')];
       const campusMap = document.querySelector('[data-campus-map]');
       const schoolTitle = document.querySelector('[data-school-title]');
+      const schoolDescription = document.querySelector('[data-location-description]');
+      const locationLabel = document.querySelector('[data-location-label]');
       const campus360 = document.querySelector('[data-campus-360]');
       const mapModes = [...document.querySelectorAll('[data-map-mode]')];
-      const mapLists = [...document.querySelectorAll('[data-map-list]')];
       const mapToolbarTitle = document.querySelector('[data-map-toolbar-title]');
       const mapListTitle = document.querySelector('[data-map-list-title]');
       const mapOverlay = document.querySelector('[data-map-overlay]');
+      const mapProvinceLabel = document.querySelector('[data-map-province-label]');
+      const mapToolbarProvince = document.querySelector('.map-toolbar-label');
+      const provinceSelect = document.querySelector('[data-province-select]');
+      const institutionFilter = document.querySelector('[data-campus-institution-filter]');
+      const institutionSelect = document.querySelector('[data-institution]');
+      const campusFilterMessage = document.querySelector('[data-campus-filter-message]');
+      const campusEmpty = document.querySelector('[data-campus-empty]');
+      const locationCount = document.querySelector('[data-location-count]');
+      const commerceList = document.querySelector('[data-map-list="commerce"]');
+      const campusList = document.querySelector('[data-map-list="campus"]');
+      const schoolDetail = document.querySelector('.campus-school-detail');
+      const provinces = {
+        'Tacna': {
+          center: 'Tacna, Tacna, Perú',
+          commerce: [
+            {name:'Av. Coronel Mendoza', detail:'Mercadillos, galerías y negocios locales.', query:'comercio Av Coronel Mendoza Tacna Peru', icon:'▣'},
+            {name:'Mercado Central', detail:'Comercio tradicional y productos locales.', query:'Mercado Central Tacna Peru', icon:'⌖'},
+            {name:'Mercado Grau', detail:'Mercado y comercio de la ciudad de Tacna.', query:'Mercado Grau Tacna Peru', icon:'⌖'},
+            {name:'Mercado 2 de Mayo', detail:'Productos y puestos de comercio local.', query:'Mercado 2 de Mayo Tacna Peru', icon:'⌖'},
+            {name:'Mercadillo Bolognesi', detail:'Tiendas y puestos de distintos rubros.', query:'Mercadillo Bolognesi Tacna Peru', icon:'▣'},
+            {name:'Centro de Tacna', detail:'Tiendas, servicios y negocios locales.', query:'comercios centro de Tacna Peru', icon:'↗'}
+          ],
+          universities: {
+            unjbg: {name:'Universidad Nacional Jorge Basadre Grohmann · UNJBG', query:'Universidad Nacional Jorge Basadre Grohmann Tacna Peru', faculties:['Facultad de Ingeniería','Facultad de Ciencias de la Salud','Facultad de Ciencias Agropecuarias','Facultad de Educación, Comunicación y Humanidades','Facultad de Ciencias Jurídicas y Empresariales','Facultad de Ingeniería Civil, Arquitectura y Geotecnia','Facultad de Ciencias']},
+            upt: {name:'Universidad Privada de Tacna · UPT', query:'Universidad Privada de Tacna Campus Capanique Peru', faculties:['Facultad de Arquitectura y Urbanismo','Facultad de Ciencias Empresariales','Facultad de Educación, Ciencias de la Comunicación y Humanidades','Facultad de Ingeniería','Facultad de Derecho y Ciencias Políticas','Facultad de Ciencias de la Salud']},
+            utp: {name:'Universidad Tecnológica del Perú · UTP', query:'Universidad Tecnológica del Perú Campus Tacna', faculties:['Facultad de Ingeniería','Facultad de Negocios','Facultad de Psicología','Facultad de Educación','Facultad de Salud','Facultad de Arquitectura','Facultad de Derecho']}
+          }
+        },
+        'Candarave': {
+          center:'Candarave, Tacna, Perú',
+          commerce:[
+            {name:'Mercado de Abastos de Candarave',detail:'Puestos y productos de la provincia.',query:'Mercado de Abastos de Candarave Tacna Peru',icon:'⌖'},
+            {name:'Centro de Candarave',detail:'Comercios y servicios de la capital provincial.',query:'comercios centro de Candarave Tacna Peru',icon:'↗'},
+            {name:'Productores locales',detail:'Productos agrícolas y ganaderos de la zona.',query:'productores locales Candarave Tacna Peru',icon:'▣'}
+          ], universities:{}
+        },
+        'Jorge Basadre': {
+          center:'Locumba, Jorge Basadre, Tacna, Perú',
+          commerce:[
+            {name:'Mercado de Locumba',detail:'Productos y comercio local de la capital provincial.',query:'Mercado de Locumba Jorge Basadre Tacna Peru',icon:'⌖'},
+            {name:'Mercado de Ilabaya',detail:'Comercio y productos de la zona de Ilabaya.',query:'Mercado de Ilabaya Tacna Peru',icon:'⌖'},
+            {name:'Campo ferial de Toquepala',detail:'Espacio de feria y actividad comercial local.',query:'Campo ferial Toquepala Ilabaya Tacna Peru',icon:'▣'},
+            {name:'Comercio local de Ite',detail:'Tiendas y servicios del distrito de Ite.',query:'comercios Ite Jorge Basadre Tacna Peru',icon:'↗'}
+          ], universities:{}
+        },
+        'Tarata': {
+          center:'Tarata, Tacna, Perú',
+          commerce:[
+            {name:'Mercado de Tarata',detail:'Productos y puestos de comercio local.',query:'Mercado de Tarata Tacna Peru',icon:'⌖'},
+            {name:'Centro de Tarata',detail:'Tiendas y servicios de la capital provincial.',query:'comercios centro de Tarata Tacna Peru',icon:'↗'},
+            {name:'Productores locales de Tarata',detail:'Productos agrícolas y artesanales de la provincia.',query:'productores locales Tarata Tacna Peru',icon:'▣'}
+          ], universities:{}
+        }
+      };
+      let activeMapMode = 'commerce';
+      const createLocationButton = (location, subtitle) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'campus-school';
+        button.dataset.school = location.name;
+        button.dataset.query = location.query;
+        button.dataset.description = location.detail || subtitle;
+        const icon = document.createElement('span'); icon.className = 'school-icon'; icon.textContent = location.icon || '⌂';
+        const copy = document.createElement('span');
+        const name = document.createElement('strong'); name.textContent = location.name;
+        const description = document.createElement('small'); description.textContent = location.detail || subtitle;
+        copy.append(name, description);
+        const arrow = document.createElement('b'); arrow.textContent = '›';
+        button.append(icon, copy, arrow);
+        return button;
+      };
       const selectMapLocation = (button) => {
-        const school = button.dataset.school;
         const query = button.dataset.query;
         const encodedQuery = encodeURIComponent(query);
-        button.closest('[data-map-list]').querySelectorAll('[data-school]').forEach((item) => item.classList.toggle('active', item === button));
-        schoolTitle.textContent = school;
+        button.parentElement.querySelectorAll('[data-school]').forEach((item) => item.classList.toggle('active', item === button));
+        schoolTitle.textContent = button.dataset.school;
+        schoolDescription.textContent = button.dataset.description;
+        locationLabel.textContent = activeMapMode === 'commerce' ? 'ZONA COMERCIAL' : 'FACULTAD SELECCIONADA';
         campusMap.src = `https://www.google.com/maps?q=${encodedQuery}&output=embed`;
-        campusMap.title = `Mapa de ${school}, Tacna`;
+        campusMap.title = `Mapa de ${button.dataset.school}, provincia de ${provinceSelect.value}, región Tacna`;
         campus360.href = `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`;
       };
-      schoolButtons.forEach((button) => button.addEventListener('click', () => selectMapLocation(button)));
+      const renderCommerceLocations = () => {
+        const province = provinceSelect.value;
+        const locations = provinces[province].commerce;
+        commerceList.replaceChildren(...locations.map((location) => createLocationButton(location)));
+        commerceList.hidden = false;
+        campusList.hidden = true;
+        campusEmpty.hidden = true;
+        schoolDetail.hidden = false;
+        mapListTitle.textContent = `Zonas comerciales · ${province}`;
+        locationCount.textContent = `${locations.length} ${locations.length === 1 ? 'ubicación' : 'ubicaciones'}`;
+        mapToolbarTitle.textContent = `Comercios y negocios · ${province}`;
+        mapOverlay.textContent = 'Comercios locales';
+        const firstLocation = commerceList.querySelector('[data-school]');
+        if (firstLocation) selectMapLocation(firstLocation);
+      };
+      const renderCampusFaculties = () => {
+        const province = provinceSelect.value;
+        const universities = provinces[province].universities;
+        const types = Object.keys(universities);
+        campusList.replaceChildren();
+        commerceList.hidden = true;
+        campusList.hidden = types.length === 0;
+        campusEmpty.hidden = types.length > 0;
+        mapOverlay.textContent = 'Universidades y facultades';
+        mapToolbarTitle.textContent = `Campus universitario · ${province}`;
+        locationLabel.textContent = 'FACULTAD SELECCIONADA';
+        if (types.length === 0) {
+          institutionSelect.disabled = true;
+          campusFilterMessage.textContent = `Aún no hay universidades cargadas para ${province} en esta muestra.`;
+          campusEmpty.textContent = `Todavía no hemos agregado universidades de ${province} a esta muestra. Elige otra provincia o consulta sus zonas comerciales.`;
+          mapListTitle.textContent = `Universidades · ${province}`;
+          locationCount.textContent = '0 registradas';
+          schoolTitle.textContent = `Universidades en ${province}`;
+          schoolDescription.textContent = 'Esta muestra todavía no tiene facultades registradas en esta provincia.';
+          const query = provinces[province].center;
+          const encodedQuery = encodeURIComponent(query);
+          campusMap.src = `https://www.google.com/maps?q=${encodedQuery}&output=embed`;
+          campusMap.title = `Mapa de la provincia de ${province}, región Tacna`;
+          campus360.href = `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`;
+          schoolDetail.hidden = false;
+          return;
+        }
+        institutionSelect.disabled = false;
+        if (!universities[institutionSelect.value]) institutionSelect.value = types[0];
+        const institution = universities[institutionSelect.value];
+        campusFilterMessage.textContent = `Facultades de ${institution.name}`;
+        const faculties = institution.faculties.map((faculty) => ({name:faculty,detail:institution.name,query:`${faculty} ${institution.name} Tacna Peru`,icon:'⌂'}));
+        campusList.replaceChildren(...faculties.map((faculty) => createLocationButton(faculty)));
+        mapListTitle.textContent = `Facultades · ${institution.name.split(' · ')[1]}`;
+        locationCount.textContent = `${faculties.length} facultades`;
+        schoolDetail.hidden = false;
+        const firstFaculty = campusList.querySelector('[data-school]');
+        if (firstFaculty) selectMapLocation(firstFaculty);
+      };
+      const refreshMap = () => {
+        mapProvinceLabel.textContent = provinceSelect.value.toUpperCase();
+        mapToolbarProvince.textContent = `Provincia de ${provinceSelect.value}`;
+        if (activeMapMode === 'commerce') renderCommerceLocations();
+        else renderCampusFaculties();
+      };
+      commerceList.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-school]');
+        if (button) selectMapLocation(button);
+      });
+      campusList.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-school]');
+        if (button) selectMapLocation(button);
+      });
+      provinceSelect.addEventListener('change', refreshMap);
+      institutionSelect.addEventListener('change', renderCampusFaculties);
       mapModes.forEach((button) => button.addEventListener('click', () => {
-        const mode = button.dataset.mapMode;
-        const isCommerce = mode === 'commerce';
+        activeMapMode = button.dataset.mapMode;
         mapModes.forEach((item) => {
           const active = item === button;
           item.classList.toggle('active', active);
           item.setAttribute('aria-pressed', String(active));
         });
-        mapLists.forEach((list) => { list.hidden = list.dataset.mapList !== mode; });
-        mapToolbarTitle.textContent = isCommerce ? 'Mapa de comercios y negocios locales' : 'Mapa del campus universitario';
-        mapListTitle.textContent = isCommerce ? 'Zonas comerciales' : 'Facultades universitarias';
-        mapOverlay.textContent = isCommerce ? 'Comercios y negocios locales' : 'Facultades UNJBG';
-        const firstLocation = document.querySelector(`[data-map-list="${mode}"] [data-school]`);
-        if (firstLocation) selectMapLocation(firstLocation);
+        institutionFilter.hidden = activeMapMode !== 'campus';
+        refreshMap();
       }));
+      refreshMap();
 
       updateScroll();
     })();

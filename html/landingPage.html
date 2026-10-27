@@ -109,7 +109,7 @@
   <section id="campus" class="campus-section">
    <div class="eyebrow">Más cerca de tu comunidad</div>
    <h2>Explora comercios y universidades por provincia</h2>
-   <p class="campus-lead">Elige una provincia para encontrar zonas comerciales. En el modo campus, selecciona el tipo de universidad y consulta sus facultades.</p>
+   <p class="campus-lead">Elige una provincia para encontrar zonas comerciales. En el modo campus, consulta las sedes de la UNJBG y sus facultades según la provincia.</p>
   <div class="campus-mode-toggle" role="group" aria-label="Selecciona una vista del mapa">
     <button class="campus-mode-button active" type="button" data-map-mode="commerce" aria-pressed="true">🛍️ Modo Comercio Regional</button>
     <button class="campus-mode-button" type="button" data-map-mode="campus" aria-pressed="false">🎓 Modo Campus Universitario</button>
@@ -297,7 +297,9 @@
             {name:'Mercado de Abastos de Candarave',detail:'Puestos y productos de la provincia.',query:'Mercado de Abastos de Candarave Tacna Peru',icon:'⌖'},
             {name:'Centro de Candarave',detail:'Comercios y servicios de la capital provincial.',query:'comercios centro de Candarave Tacna Peru',icon:'↗'},
             {name:'Productores locales',detail:'Productos agrícolas y ganaderos de la zona.',query:'productores locales Candarave Tacna Peru',icon:'▣'}
-          ], universities:{}
+          ], universities:{
+            unjbg:{name:'UNJBG · Sede Candarave',query:'Sede Candarave UNJBG Tacna Peru',extensions:[{name:'Sede Candarave',detail:'Escuela Profesional de Medicina Veterinaria y Zootecnia · Sección descentralizada de la UNJBG.',query:'Sede Candarave UNJBG Calle Santa Rosa 895 Tacna Peru',icon:'⌂',type:'extension'}]}
+          }
         },
         'Jorge Basadre': {
           center:'Locumba, Jorge Basadre, Tacna, Perú',
@@ -306,7 +308,9 @@
             {name:'Mercado de Ilabaya',detail:'Comercio y productos de la zona de Ilabaya.',query:'Mercado de Ilabaya Tacna Peru',icon:'⌖'},
             {name:'Campo ferial de Toquepala',detail:'Espacio de feria y actividad comercial local.',query:'Campo ferial Toquepala Ilabaya Tacna Peru',icon:'▣'},
             {name:'Comercio local de Ite',detail:'Tiendas y servicios del distrito de Ite.',query:'comercios Ite Jorge Basadre Tacna Peru',icon:'↗'}
-          ], universities:{}
+          ], universities:{
+            unjbg:{name:'UNJBG · Sede Jorge Basadre',query:'Sede UNJBG Locumba Jorge Basadre Tacna Peru',extensions:[{name:'Sede Jorge Basadre · Locumba',detail:'Escuela Profesional de Ingeniería en Industrias Alimentarias · Sección descentralizada de la UNJBG.',query:'Sede UNJBG Locumba Jorge Basadre Tacna Peru',icon:'⌂',type:'extension'}]}
+          }
         },
         'Tarata': {
           center:'Tarata, Tacna, Perú',
@@ -314,7 +318,9 @@
             {name:'Mercado de Tarata',detail:'Productos y puestos de comercio local.',query:'Mercado de Tarata Tacna Peru',icon:'⌖'},
             {name:'Centro de Tarata',detail:'Tiendas y servicios de la capital provincial.',query:'comercios centro de Tarata Tacna Peru',icon:'↗'},
             {name:'Productores locales de Tarata',detail:'Productos agrícolas y artesanales de la provincia.',query:'productores locales Tarata Tacna Peru',icon:'▣'}
-          ], universities:{}
+          ], universities:{
+            unjbg:{name:'UNJBG · Sede Tarata',query:'Sede UNJBG Tarata Tacna Peru',extensions:[{name:'Sede Tarata',detail:'Escuela Profesional de Agronomía · Sección descentralizada de la UNJBG.',query:'Sede UNJBG Tarata Tacna Peru',icon:'⌂',type:'extension'}]}
+          }
         }
       };
       let activeMapMode = 'commerce';
@@ -325,6 +331,7 @@
         button.dataset.school = location.name;
         button.dataset.query = location.query;
         button.dataset.description = location.detail || subtitle;
+        button.dataset.locationType = location.type || 'faculty';
         const icon = document.createElement('span'); icon.className = 'school-icon'; icon.textContent = location.icon || '⌂';
         const copy = document.createElement('span');
         const name = document.createElement('strong'); name.textContent = location.name;
@@ -340,7 +347,7 @@
         button.parentElement.querySelectorAll('[data-school]').forEach((item) => item.classList.toggle('active', item === button));
         schoolTitle.textContent = button.dataset.school;
         schoolDescription.textContent = button.dataset.description;
-        locationLabel.textContent = activeMapMode === 'commerce' ? 'ZONA COMERCIAL' : 'FACULTAD SELECCIONADA';
+        locationLabel.textContent = activeMapMode === 'commerce' ? 'ZONA COMERCIAL' : button.dataset.locationType === 'extension' ? 'SEDE UNIVERSITARIA' : 'FACULTAD SELECCIONADA';
         campusMap.src = `https://www.google.com/maps?q=${encodedQuery}&output=embed`;
         campusMap.title = `Mapa de ${button.dataset.school}, provincia de ${provinceSelect.value}, región Tacna`;
         campus360.href = `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`;
@@ -387,14 +394,16 @@
           schoolDetail.hidden = false;
           return;
         }
+        institutionSelect.replaceChildren(...types.map((type) => new Option(type.toUpperCase(), type)));
         institutionSelect.disabled = false;
         if (!universities[institutionSelect.value]) institutionSelect.value = types[0];
         const institution = universities[institutionSelect.value];
-        campusFilterMessage.textContent = `Facultades de ${institution.name}`;
-        const faculties = institution.faculties.map((faculty) => ({name:faculty,detail:institution.name,query:`${faculty} ${institution.name} Tacna Peru`,icon:'⌂'}));
-        campusList.replaceChildren(...faculties.map((faculty) => createLocationButton(faculty)));
-        mapListTitle.textContent = `Facultades · ${institution.name.split(' · ')[1]}`;
-        locationCount.textContent = `${faculties.length} facultades`;
+        const extensions = institution.extensions || [];
+        const locations = extensions.length ? extensions : institution.faculties.map((faculty) => ({name:faculty,detail:institution.name,query:`${faculty} ${institution.name} Tacna Peru`,icon:'⌂'}));
+        campusFilterMessage.textContent = extensions.length ? `Sede descentralizada de la UNJBG en ${province}.` : `Facultades de ${institution.name}`;
+        campusList.replaceChildren(...locations.map((location) => createLocationButton(location)));
+        mapListTitle.textContent = extensions.length ? `Sedes UNJBG · ${province}` : `Facultades · ${institution.name.split(' · ')[1]}`;
+        locationCount.textContent = extensions.length ? `${extensions.length} ${extensions.length === 1 ? 'sede' : 'sedes'}` : `${locations.length} facultades`;
         schoolDetail.hidden = false;
         const firstFaculty = campusList.querySelector('[data-school]');
         if (firstFaculty) selectMapLocation(firstFaculty);

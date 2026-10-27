@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../css/styles.css">
   <style>
     .history-mode-picker{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:26px auto 32px}.history-mode-button{padding:12px 18px;border:1px solid #ddd5e8;border-radius:12px;background:#fff;color:#351071;font:inherit;font-weight:900;cursor:pointer}.history-mode-button.active{background:#351071;color:#fff;box-shadow:0 8px 20px #35107126}.history-mode-button:focus-visible{outline:3px solid #ffb08d;outline-offset:3px}[hidden]{display:none!important}.local-stories{margin:0 auto 64px}.local-story-heading{text-align:center;margin:0 auto 26px;max-width:760px}.local-story-heading h2{font-size:clamp(28px,4vw,40px);color:#351071;margin:10px 0}.local-story-heading p{color:#607387;line-height:1.6}.local-case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.local-case{padding:26px;border:1px solid #e7e0f0;border-radius:20px;background:#fff;box-shadow:0 12px 32px #3510710c}.local-case-kicker{color:#ff6935;font-size:11px;font-weight:950;letter-spacing:1.3px;text-transform:uppercase}.local-case h3{color:#351071;font-size:23px;margin:10px 0}.local-case p{color:#607387;line-height:1.6}.case-flow{margin:18px 0;padding:15px;border-radius:12px;background:#f7f4fb;color:#51485f;line-height:1.55;font-size:14px}.case-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.case-metric{padding:14px;border-radius:12px;background:#f2edf8}.case-metric strong{display:block;color:#351071;font-size:24px}.case-metric span{display:block;margin-top:4px;color:#71677e;font-size:11px;line-height:1.4}.case-next{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:22px;padding:20px;border-radius:16px;background:#351071;color:#fff}.case-next p{margin:0;color:#eadfff}.case-next a{flex:none;color:#fff;font-weight:900}@media(max-width:700px){.local-case-grid{grid-template-columns:1fr}.local-case{padding:21px}.case-next{align-items:flex-start;flex-direction:column}}
+    .story-scene-art.with-comic-panel{background-color:#26324b;background-position:center;background-repeat:no-repeat;background-size:contain}.story-scene-art.with-comic-panel:before,.story-scene-art.with-comic-panel:after,.story-scene-art.with-comic-panel .story-spark,.story-scene-art.with-comic-panel .story-bubble,.story-scene-art.with-comic-panel .story-card,.story-scene-art.with-comic-panel .story-person{display:none}
   </style>
 </head>
 <body class="story-body">
@@ -38,7 +39,7 @@
           <div class="story-card card-one" data-story-card-one>★ Cerca de ti</div><div class="story-card card-two" data-story-card-two>Novedoso</div>
           <div class="story-person person-one"></div><div class="story-person person-two"></div>
         </div>
-        <div class="story-copy"><span class="story-number" data-story-number>VIÑETA 01 · DESCUBRIR</span><h2 data-story-title>Encuentra algo que necesitas cerca de ti.</h2><p data-story-copy>Como consumidor, puedes descubrir productos y servicios creados por estudiantes de tu misma comunidad.</p><div class="story-reflection" data-story-reflection>Tu próxima compra puede apoyar una gran idea.</div></div>
+        <div class="story-copy"><span class="story-number" data-story-number>01 . DESCUBRIR</span><h2 data-story-title>Encuentra algo que necesitas cerca de ti.</h2><p data-story-copy>Como consumidor, puedes descubrir productos y servicios creados por estudiantes de tu misma comunidad.</p><div class="story-reflection" data-story-reflection>Tu próxima compra puede apoyar una gran idea.</div></div>
       </article>
       <div class="story-controls"><button class="story-button" id="story-prev" type="button" disabled>← Anterior</button><span class="story-count" aria-live="polite">1 / 4</span><button class="story-button" id="story-next" type="button">Siguiente →</button></div>
       <section class="story-complement" aria-label="Storyboards completos">
@@ -48,10 +49,10 @@
     </section>
     </div>
     <section id="tacna-stories" class="local-stories" hidden aria-labelledby="tacna-stories-title">
-      <div class="local-story-heading"><span class="story-number">POLO COMERCIAL Y LOGÍSTICO DE TACNA</span><h2 id="tacna-stories-title">Historias de negocios que quieren llegar más lejos</h2><p>Escenarios para mercadillos, galerías y Mipymes que muestran cómo podría verse la experiencia de un comercio local en UMART.</p></div>
+      <div class="local-story-heading"><span class="story-number">NEGOCIOS LOCALES DE TACNA</span><h2 id="tacna-stories-title">Historias de negocios que quieren llegar más lejos</h2><p>Ejemplos de cómo mercadillos, galerías y pequeños negocios podrían mostrar sus productos, recibir consultas y llegar a más compradores con UMART.</p></div>
       <div class="local-case-grid">
         <article class="local-case"><span class="local-case-kicker">CASO 01 · GALERÍA COMERCIAL “EL BAZAR”</span><h3>Un catálogo listo para compartir</h3><p>Una tienda de accesorios organiza sus productos en un catálogo digital y facilita que sus clientes consulten novedades y disponibilidad desde WhatsApp.</p><div class="case-flow"><strong>La historia:</strong> De mostrar productos solo en el local a tener una vitrina que se puede compartir diariamente con compradores de Tacna y de la región.</div><div class="case-metrics"><div class="case-metric"><strong>+65%</strong><span>Consultas por WhatsApp<br>(Incr. primeros 60 días)</span></div><div class="case-metric"><strong>240+</strong><span>Pedidos desde catálogo<br>(Ventas cerradas en línea)</span></div></div></article>
-        <article class="local-case"><span class="local-case-kicker">CASO 02 · PRODUCTOS REGIONALES “SABORES DE TACNA”</span><h3>Productos locales a nuevos visitantes</h3><p>Un negocio de productos regionales (aceitunas, pisco, artesanías) presenta su oferta en línea para que visitantes de Tacna puedan descubrirla antes o durante su recorrido por la ciudad.</p><div class="case-flow"><strong>La historia:</strong> Una publicación con ubicación, catálogo y contacto directo abre una oportunidad para conversar con compradores locales y turistas transfronterizos de Chile y Bolivia.</div><div class="case-metrics"><div class="case-metric"><strong>+380</strong><span>Consultas de visitantes<br>(Turistas de Arica, Iquique y La Paz)</span></div><div class="case-metric"><strong>+40%</strong><span>Ventas a turistas<br>(Atribuidas a visitantes de frontera)</span></div></div></article>
+        <article class="local-case"><span class="local-case-kicker">CASO 02 · PRODUCTOS REGIONALES “SABORES DE TACNA”</span><h3>Productos locales a nuevos visitantes</h3><p>Un negocio de productos regionales (aceitunas, pisco, artesanías) presenta su oferta en línea para que visitantes de Tacna puedan descubrirla antes o durante su recorrido por la ciudad.</p><div class="case-flow"><strong>La historia:</strong> Una publicación con ubicación, catálogo y contacto directo abre una oportunidad para conversar con compradores locales y visitantes de Chile y Bolivia.</div><div class="case-metrics"><div class="case-metric"><strong>+380</strong><span>Consultas de visitantes<br>(Turistas de Arica, Iquique y La Paz)</span></div><div class="case-metric"><strong>+40%</strong><span>Ventas a visitantes<br>(Personas que llegaron desde la frontera)</span></div></div></article>
       </div>
       <div class="case-next"><p><strong>¿Tienes un negocio en Tacna?</strong><br>Tu experiencia podría convertirse en una historia de crecimiento local.</p><a href="landingPage.html#contacto">Conversemos →</a></div>
     </section>
@@ -82,23 +83,35 @@
     const storyCardOne = document.querySelector('[data-story-card-one]');
     const storyCardTwo = document.querySelector('[data-story-card-two]');
     const complementFigures = [...document.querySelectorAll('[data-complement-profile]')];
+    const consumerPanels = [
+      '../assets/Storyboard.png/consumidor-vineta-01.png',
+      '../assets/Storyboard.png/consumidor-vineta-02.png',
+      '../assets/Storyboard.png/consumidor-vineta-03.png',
+      '../assets/Storyboard.png/consumidor-vineta-04.png'
+    ];
+    const entrepreneurPanels = [
+      '../assets/Storyboard.png/emprendedor-vineta-01.png',
+      '../assets/Storyboard.png/emprendedor-vineta-02.png',
+      '../assets/Storyboard.png/emprendedor-vineta-03.png',
+      '../assets/Storyboard.png/emprendedor-vineta-04.png'
+    ];
     const stories = {
       consumidor: {
         label: 'consumidores',
         scenes: [
-          ['VIÑETA 01 · DESCUBRIR', 'Encuentra algo que necesitas cerca de ti.', 'Como consumidor, puedes descubrir productos y servicios creados por estudiantes de tu misma comunidad.', 'Tu próxima compra puede apoyar una gran idea.', '¿Dónde encuentro algo así?', '★ Cerca de ti', 'Nuevo'],
-          ['VIÑETA 02 · EXPLORAR', 'Compara opciones pensadas para ti.', 'Explora publicaciones, revisa precios y encuentra lo que buscas sin perder tiempo en distintos grupos.', 'Cuando todo está en un solo lugar, elegir es más sencillo.', 'Quiero ver mis opciones', 'Mejor valorado', 'S/ 25'],
-          ['VIÑETA 03 · CONECTAR', 'Habla directamente con quien vende.', 'Resuelve tus dudas y coordina tu compra con una persona real de tu campus.', 'La confianza también se construye conversando.', '¿Todavía tienes disponible?', 'Respuesta rápida', 'Campus'],
-          ['VIÑETA 04 · APOYAR', 'Comprar aquí también mueve tu comunidad.', 'Cada compra ayuda a que el talento de otro estudiante siga creciendo.', 'Tu decisión puede abrirle espacio a una nueva historia.', '¡Gracias por apoyar!', 'Compra local', 'Conectados']
+          ['01 . DESCUBRIR', 'Encuentra algo que necesitas cerca de ti.', 'Como consumidor, puedes descubrir productos y servicios creados por estudiantes de tu misma comunidad.', 'Tu próxima compra puede apoyar una gran idea.', '¿Dónde encuentro algo así?', '★ Cerca de ti', 'Nuevo'],
+          ['02 . EXPLORAR', 'Compara opciones pensadas para ti.', 'Explora publicaciones, revisa precios y encuentra lo que buscas sin perder tiempo en distintos grupos.', 'Cuando todo está en un solo lugar, elegir es más sencillo.', 'Quiero ver mis opciones', 'Mejor valorado', 'S/ 25'],
+          ['03 . CONECTAR', 'Habla directamente con quien vende.', 'Resuelve tus dudas y coordina tu compra con una persona real de tu campus.', 'La confianza también se construye conversando.', '¿Todavía tienes disponible?', 'Respuesta rápida', 'Campus'],
+          ['04 . APOYAR', 'Comprar aquí también mueve tu comunidad.', 'Cada compra ayuda a que el talento de otro estudiante siga creciendo.', 'Tu decisión puede abrirle espacio a una nueva historia.', '¡Gracias por apoyar!', 'Compra local', 'Conectados']
         ]
       },
       emprendedor: {
         label: 'emprendedores',
         scenes: [
-          ['VIÑETA 01 · EMPEZAR', 'Tienes una idea que merece ser vista.', 'Como emprendedor, puedes convertir lo que sabes hacer en una propuesta para tu comunidad universitaria.', 'Toda oportunidad comienza cuando te animas a mostrarla.', 'Tengo algo que compartir', 'Mi emprendimiento', 'Idea nueva'],
-          ['VIÑETA 02 · PUBLICAR', 'Crea tu vitrina dentro del campus.', 'Publica tus productos o servicios y organiza tu catálogo para que las personas encuentren lo que ofreces.', 'Tu talento se vuelve más visible cuando está en el lugar correcto.', 'Publicar producto', 'Tu catálogo', 'Listo'],
-          ['VIÑETA 03 · CONECTAR', 'Llega a quienes ya están buscando.', 'Recibe consultas de estudiantes y conversa directamente con posibles compradores.', 'Una conversación puede convertirse en tu próximo cliente.', 'Tengo una consulta', 'Nuevo contacto', 'En línea'],
-          ['VIÑETA 04 · CRECER', 'Haz crecer tu emprendimiento con tu comunidad.', 'Cada publicación, recomendación y compra te acerca a nuevas oportunidades dentro del campus.', 'Cuando tu emprendimiento avanza, toda la comunidad gana.', '¡Tenemos un pedido!', 'Nueva oportunidad', 'Celebrar']
+          ['01 . EMPEZAR', 'Tienes una idea que merece ser vista.', 'Como emprendedor, puedes convertir lo que sabes hacer en una propuesta para tu comunidad universitaria.', 'Toda oportunidad comienza cuando te animas a mostrarla.', 'Tengo algo que compartir', 'Mi emprendimiento', 'Idea nueva'],
+          ['02 . EXPLORAR', 'Crea tu vitrina dentro del campus.', 'Publica tus productos o servicios y organiza tu catálogo para que las personas encuentren lo que ofreces.', 'Tu talento se vuelve más visible cuando está en el lugar correcto.', 'Publicar producto', 'Tu catálogo', 'Listo'],
+          ['03 . CONECTAR', 'Llega a quienes ya están buscando.', 'Recibe consultas de estudiantes y conversa directamente con posibles compradores.', 'Una conversación puede convertirse en tu próximo cliente.', 'Tengo una consulta', 'Nuevo contacto', 'En línea'],
+          ['04 . CRECER', 'Haz crecer tu emprendimiento con tu comunidad.', 'Cada publicación, recomendación y compra te acerca a nuevas oportunidades dentro del campus.', 'Cuando tu emprendimiento avanza, toda la comunidad gana.', '¡Tenemos un pedido!', 'Nueva oportunidad', 'Celebrar']
         ]
       }
     };
@@ -108,6 +121,9 @@
       const story = stories[profile];
       current = Math.max(0, Math.min(index, story.scenes.length - 1));
       const [number, title, copy, reflection, bubble, cardOne, cardTwo] = story.scenes[current];
+      const profilePanels = profile === 'consumidor' ? consumerPanels : entrepreneurPanels;
+      sceneArt.classList.add('with-comic-panel');
+      sceneArt.style.backgroundImage = `url("${profilePanels[current]}")`;
       sceneArt.setAttribute('aria-label', `Viñeta ${current + 1} del storyboard para ${story.label}`);
       storyNumber.textContent = number;
       storyTitle.textContent = title;

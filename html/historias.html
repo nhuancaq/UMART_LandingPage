@@ -17,16 +17,18 @@
       <a class="story-back" href="landingPage.html">← Volver a UMART</a>
     </header>
     <section class="story-intro">
-      <div class="eyebrow">Historias de una comunidad que crece</div>
-      <h1>Del campus al comercio de Tacna.</h1>
-      <p>Elige un perfil y descubre cómo una vitrina digital puede acercar las ideas emprendedoras a nuevos compradores.</p>
+      <div class="eyebrow">Historias que nacen en Tacna</div>
+      <h1>Conoce a quienes hacen crecer la región.</h1>
+      <p>Explora los storyboards universitarios y las fichas preparadas para contar historias reales de comercios y productores locales.</p>
     </section>
     <div class="history-mode-picker" role="group" aria-label="Selecciona un perfil">
       <button class="history-mode-button active" type="button" data-history-mode="campus" aria-pressed="true">🎓 Emprendimiento universitario</button>
       <button class="history-mode-button" type="button" data-history-mode="tacna" aria-pressed="false">📍 Comercio tacneño</button>
+      <button class="history-mode-button" type="button" data-history-mode="producer" aria-pressed="false">🌱 Productores de Tacna</button>
     </div>
     <div id="campus-stories">
     <section class="storyboard" aria-label="Storyboard universitario de UMART">
+      <div class="story-template-note">Storyboard ilustrativo de UMART; no es el testimonio de una persona entrevistada.</div>
       <div class="story-audience-picker" role="group" aria-label="Elige cómo quieres leer la historia">
         <p>¿Cómo quieres conocer UMART?</p>
         <button class="story-audience-button active" type="button" data-profile="consumidor" aria-pressed="true">🛍️ Soy consumidor</button>
@@ -43,30 +45,39 @@
       </article>
       <div class="story-controls"><button class="story-button" id="story-prev" type="button" disabled>← Anterior</button><span class="story-count" aria-live="polite">1 / 4</span><button class="story-button" id="story-next" type="button">Siguiente →</button></div>
       <section class="story-complement" aria-label="Storyboards completos">
-        <div><span class="story-number">COMPLEMENTO VISUAL</span><h2>La historia completa, en una sola mirada.</h2><p>Estas versiones completas acompañan la animación mientras seguimos perfeccionando sus viñetas.</p></div>
+        <div><span class="story-number">COMPLEMENTO VISUAL</span><h2>La historia completa, en una sola mirada.</h2><p>Este storyboard es una representación ilustrativa de una experiencia en UMART, no un testimonio real.</p></div>
         <div class="story-complement-grid"><figure class="active" data-complement-profile="consumidor"><img src="../assets/Storyboard.png/StoryboardConsumidor.png" alt="Storyboard completo del consumidor"><figcaption>Historia del consumidor</figcaption></figure><figure data-complement-profile="emprendedor"><img src="../assets/Storyboard.png/storyboardEmprendedor.png" alt="Storyboard completo del emprendedor"><figcaption>Historia del emprendedor</figcaption></figure></div>
       </section>
     </section>
     </div>
     <section id="tacna-stories" class="local-stories" hidden aria-labelledby="tacna-stories-title">
-      <div class="local-story-heading"><span class="story-number">NEGOCIOS LOCALES DE TACNA</span><h2 id="tacna-stories-title">Historias de negocios que quieren llegar más lejos</h2><p>Ejemplos de cómo mercadillos, galerías y pequeños negocios podrían mostrar sus productos, recibir consultas y llegar a más compradores con UMART.</p></div>
+      <div class="local-story-heading"><span class="story-number">NEGOCIOS LOCALES DE TACNA</span><h2 id="tacna-stories-title">Historias de negocios que quieren llegar más lejos</h2><p>Ejemplos de cómo mercadillos, galerías y pequeños negocios podrían mostrar sus productos y conectar con nuevos compradores.</p><p class="story-template-note">Escenarios de muestra: nombres, cifras y resultados son ilustrativos; no corresponden a casos reales de UMART.</p></div>
       <div class="local-case-grid">
-        <article class="local-case"><span class="local-case-kicker">CASO 01 · GALERÍA COMERCIAL “EL BAZAR”</span><h3>Un catálogo listo para compartir</h3><p>Una tienda de accesorios organiza sus productos en un catálogo digital y facilita que sus clientes consulten novedades y disponibilidad desde WhatsApp.</p><div class="case-flow"><strong>La historia:</strong> De mostrar productos solo en el local a tener una vitrina que se puede compartir diariamente con compradores de Tacna y de la región.</div><div class="case-metrics"><div class="case-metric"><strong>+65%</strong><span>Consultas por WhatsApp<br>(Incr. primeros 60 días)</span></div><div class="case-metric"><strong>240+</strong><span>Pedidos desde catálogo<br>(Ventas cerradas en línea)</span></div></div></article>
-        <article class="local-case"><span class="local-case-kicker">CASO 02 · PRODUCTOS REGIONALES “SABORES DE TACNA”</span><h3>Productos locales a nuevos visitantes</h3><p>Un negocio de productos regionales (aceitunas, pisco, artesanías) presenta su oferta en línea para que visitantes de Tacna puedan descubrirla antes o durante su recorrido por la ciudad.</p><div class="case-flow"><strong>La historia:</strong> Una publicación con ubicación, catálogo y contacto directo abre una oportunidad para conversar con compradores locales y visitantes de Chile y Bolivia.</div><div class="case-metrics"><div class="case-metric"><strong>+380</strong><span>Consultas de visitantes<br>(Turistas de Arica, Iquique y La Paz)</span></div><div class="case-metric"><strong>+40%</strong><span>Ventas a visitantes<br>(Personas que llegaron desde la frontera)</span></div></div></article>
+        <article class="local-case"><span class="local-case-kicker">CASO 01 · GALERÍA COMERCIAL “EL BAZAR”</span><h3>Un catálogo listo para compartir</h3><p>Una tienda de accesorios organiza sus productos en un catálogo digital y facilita que sus clientes consulten novedades y disponibilidad desde WhatsApp.</p><div class="case-flow"><strong>La historia:</strong> De mostrar productos solo en el local a tener una vitrina que se puede compartir diariamente con compradores de Tacna y de la región.</div><div class="case-metrics"><div class="case-metric"><strong>+65%</strong><span>Consultas por WhatsApp<br>(Incremento ilustrativo en 60 días)</span></div><div class="case-metric"><strong>240+</strong><span>Pedidos desde catálogo<br>(Cifra ilustrativa)</span></div></div></article>
+        <article class="local-case"><span class="local-case-kicker">CASO 02 · PRODUCTOS REGIONALES “SABORES DE TACNA”</span><h3>Productos locales a nuevos visitantes</h3><p>Un negocio de productos regionales presenta su oferta para que visitantes de Tacna puedan descubrirla antes o durante su recorrido por la ciudad.</p><div class="case-flow"><strong>La historia:</strong> Una publicación con ubicación, catálogo y contacto directo abre oportunidades de conversación con compradores locales y visitantes de frontera.</div><div class="case-metrics"><div class="case-metric"><strong>+380</strong><span>Consultas de visitantes<br>(Cifra ilustrativa)</span></div><div class="case-metric"><strong>+40%</strong><span>Ventas a visitantes<br>(Incremento ilustrativo)</span></div></div></article>
       </div>
       <div class="case-next"><p><strong>¿Tienes un negocio en Tacna?</strong><br>Tu experiencia podría convertirse en una historia de crecimiento local.</p><a href="landingPage.html#contacto">Conversemos →</a></div>
+    </section>
+    <section id="producer-stories" class="local-stories producer-stories" hidden aria-labelledby="producer-stories-title">
+      <div class="local-story-heading"><span class="story-number">PRODUCCIÓN LOCAL · TACNA</span><h2 id="producer-stories-title">Historias de quienes producen en Tacna</h2><p>Plantillas visuales para destacar el origen, el proceso y la oferta de productores. Las ubicaciones y testimonios se completarán cuando se validen con cada participante.</p></div>
+      <div class="local-case-grid producer-story-grid">
+        <article class="local-case story-template-card"><img src="../assets/Pictures.png/ProductoLocal.png" alt="Ilustración de productos regionales, usada como ejemplo y no como perfil de una persona registrada" loading="lazy" decoding="async"><div class="story-template-body"><span class="local-case-kicker">FICHA DE EJEMPLO · PRODUCTOS REGIONALES</span><h3>Del producto local a nuevos compradores</h3><p>Una estructura para conocer qué produce una persona y cómo prepara su oferta.</p><div class="story-metadata"><span>Productor/a: por entrevistar</span><span>Provincia y zona: por validar</span></div><details class="story-details"><summary>Leer historia completa</summary><div><p><strong>Cómo empezó:</strong> pendiente de entrevista.</p><p><strong>Actividad y proceso:</strong> registrar el producto, su origen y las etapas de elaboración.</p><p><strong>Desafío y motivación:</strong> completar con la experiencia expresada por su protagonista.</p><p><strong>Oferta y cómo encontrarla:</strong> confirmar presentación, temporada, disponibilidad y zona pública.</p><blockquote>«Añadir una frase real con autorización del productor o productora.»</blockquote><a href="landingPage.html#contacto">Conversemos con UMART →</a></div></details></div></article>
+        <article class="local-case story-template-card"><img src="../assets/Pictures.png/RopaLana.png" alt="Ilustración de prendas textiles de lana, como ejemplo de producción local" loading="lazy" decoding="async"><div class="story-template-body"><span class="local-case-kicker">FICHA DE EJEMPLO · TEXTILES</span><h3>Tradición, materiales y trabajo local</h3><p>Una ficha para contar el proceso de producción textil y presentar una oferta regional.</p><div class="story-metadata"><span>Productor/a: por entrevistar</span><span>Zona: por validar</span></div><details class="story-details"><summary>Leer historia completa</summary><div><p><strong>Inicio y trayectoria:</strong> contenido por levantar en una entrevista.</p><p><strong>Proceso y desafío:</strong> describir materiales y trabajo solo con información confirmada.</p><p><strong>Oferta:</strong> incorporar prendas, opciones de pedido y puntos de entrega acordados.</p><blockquote>«Añadir una frase real con autorización de la persona entrevistada.»</blockquote><a href="landingPage.html#contacto">Conversemos con UMART →</a></div></details></div></article>
+      </div>
+      <p class="story-data-note">Todas estas fichas son estructuras de demostración; no representan testimonios, productores ni resultados reales.</p>
+      <div class="case-next"><p><strong>¿Produces en Tacna?</strong><br>Conversemos para conocer tu actividad y validar qué información deseas compartir.</p><a href="landingPage.html#contacto">Hablar con UMART →</a></div>
     </section>
   </main>
   <script>
     const historyButtons=[...document.querySelectorAll('[data-history-mode]')];
-    const campusStories=document.querySelector('#campus-stories');
-    const tacnaStories=document.querySelector('#tacna-stories');
-    historyButtons.forEach(button=>button.addEventListener('click',()=>{
-      const isTacna=button.dataset.historyMode==='tacna';
-      campusStories.hidden=isTacna;
-      tacnaStories.hidden=!isTacna;
-      historyButtons.forEach(item=>{const active=item===button;item.classList.toggle('active',active);item.setAttribute('aria-pressed',String(active))});
-    }));
+    const historyViews={campus:document.querySelector('#campus-stories'),tacna:document.querySelector('#tacna-stories'),producer:document.querySelector('#producer-stories')};
+    const showHistoryMode=(mode)=>{
+      Object.entries(historyViews).forEach(([key,view])=>{if(view)view.hidden=key!==mode});
+      historyButtons.forEach(button=>{const active=button.dataset.historyMode===mode;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active))});
+    };
+    historyButtons.forEach(button=>button.addEventListener('click',()=>showHistoryMode(button.dataset.historyMode)));
+    const requestedStory=new URLSearchParams(location.search).get('perfil');
+    showHistoryMode(requestedStory==='productores'?'producer':'campus');
   </script>
   <script>
     const scene = document.querySelector('.story-scene');
